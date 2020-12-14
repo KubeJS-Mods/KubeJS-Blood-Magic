@@ -1,0 +1,28 @@
+modLoader = "javafml"
+loaderVersion = "[32,)"
+issueTrackerURL = "https://github.com/KubeJS-Mods/KubeJS-Blood-Magic/issues"
+license = "GNU LGPLv3"
+
+[[mods]]
+modId = "kubejs_blood_magic"
+version = "${file.jarVersion}"
+displayName = "KubeJS Blood Magic"
+authors = "LatvianModder"
+description = '''
+KubeJS Blood Magic integration
+'''
+license = "GNU LGPLv3"
+
+[[dependencies.kubejs_blood_magic]]
+modId = "kubejs"
+mandatory = true
+versionRange = "[1604,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.kubejs_blood_magic]]
+modId = "bloodmagic"
+mandatory = true
+versionRange = "*"
+ordering = "AFTER"
+side = "BOTH"
