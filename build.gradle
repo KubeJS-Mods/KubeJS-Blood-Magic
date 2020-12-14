@@ -131,7 +131,7 @@ if (ENV.CURSEFORGE_KEY) {
 			addGameVersion "1.16.4"
 			relations {
 				requiredDependency 'kubejs'
-				requiredDependency 'immersive-engineering'
+				requiredDependency 'blood-magic'
 			}
 			changelog = getGitChangelog
 			changelogType = 'markdown'
