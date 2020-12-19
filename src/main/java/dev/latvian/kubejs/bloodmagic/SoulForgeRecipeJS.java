@@ -24,7 +24,10 @@ public class SoulForgeRecipeJS extends BMRecipeJS
 
 		for (int i = 0; i < 4; i++)
 		{
-			inputItems.add(parseIngredientItem(json.get("input" + i)));
+			if (json.has("input" + i))
+			{
+				inputItems.add(parseIngredientItem(json.get("input" + i)));
+			}
 		}
 	}
 
