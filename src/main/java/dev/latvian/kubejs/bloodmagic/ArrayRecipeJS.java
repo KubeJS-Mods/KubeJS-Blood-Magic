@@ -1,6 +1,9 @@
 package dev.latvian.kubejs.bloodmagic;
 
+import dev.latvian.kubejs.item.ItemStackJS;
 import dev.latvian.kubejs.util.ListJS;
+
+import javax.annotation.Nullable;
 
 /**
  * @author LatvianModder
@@ -10,7 +13,13 @@ public class ArrayRecipeJS extends BMRecipeJS
 	@Override
 	public void create(ListJS args)
 	{
-		outputItems.add(parseResultItem(args.get(0)));
+		ItemStackJS is = parseResultItem(args.get(0));
+
+		if (!is.isInvalidRecipeIngredient())
+		{
+			outputItems.add(is);
+		}
+
 		inputItems.add(parseIngredientItem(args.get(1)));
 		inputItems.add(parseIngredientItem(args.get(2)));
 	}
@@ -18,7 +27,13 @@ public class ArrayRecipeJS extends BMRecipeJS
 	@Override
 	public void deserialize()
 	{
-		outputItems.add(parseResultItem(json.get("output")));
+		ItemStackJS is = parseResultItem(json.get("output"));
+
+		if (!is.isInvalidRecipeIngredient())
+		{
+			outputItems.add(is);
+		}
+
 		inputItems.add(parseIngredientItem(json.get("baseinput")));
 		inputItems.add(parseIngredientItem(json.get("addedinput")));
 	}
@@ -43,5 +58,11 @@ public class ArrayRecipeJS extends BMRecipeJS
 			json.add("baseinput", inputItems.get(0).toJson());
 			json.add("addedinput", inputItems.get(1).toJson());
 		}
+	}
+
+	@Override
+	public ItemStackJS parseResultItem(@Nullable Object o)
+	{
+		return ItemStackJS.of(o);
 	}
 }
