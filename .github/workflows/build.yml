@@ -37,7 +37,7 @@ jobs:
           SAPS_TOKEN: ${{ secrets.SAPS_TOKEN }}
         run: |
           chmod +x ./gradlew
-          ./gradlew build upload --stacktrace --no-daemon
+          ./gradlew build publish --stacktrace --no-daemon
       - name: Release to CurseForge
         if: |
           github.ref == 'refs/heads/main' && !contains(github.event.head_commit.message, '[norelease]') && github.event.inputs.norelease != 'true'
