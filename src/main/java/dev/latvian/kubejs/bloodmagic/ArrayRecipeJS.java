@@ -8,15 +8,12 @@ import javax.annotation.Nullable;
 /**
  * @author LatvianModder
  */
-public class ArrayRecipeJS extends BMRecipeJS
-{
+public class ArrayRecipeJS extends BMRecipeJS {
 	@Override
-	public void create(ListJS args)
-	{
+	public void create(ListJS args) {
 		ItemStackJS is = parseResultItem(args.get(0));
 
-		if (!is.isInvalidRecipeIngredient())
-		{
+		if (!is.isInvalidRecipeIngredient()) {
 			outputItems.add(is);
 		}
 
@@ -25,12 +22,10 @@ public class ArrayRecipeJS extends BMRecipeJS
 	}
 
 	@Override
-	public void deserialize()
-	{
+	public void deserialize() {
 		ItemStackJS is = parseResultItem(json.get("output"));
 
-		if (!is.isInvalidRecipeIngredient())
-		{
+		if (!is.isInvalidRecipeIngredient()) {
 			outputItems.add(is);
 		}
 
@@ -38,31 +33,26 @@ public class ArrayRecipeJS extends BMRecipeJS
 		inputItems.add(parseIngredientItem(json.get("addedinput")));
 	}
 
-	public ArrayRecipeJS texture(String tex)
-	{
+	public ArrayRecipeJS texture(String tex) {
 		json.addProperty("texture", tex);
 		save();
 		return this;
 	}
 
 	@Override
-	public void serialize()
-	{
-		if (serializeOutputs)
-		{
+	public void serialize() {
+		if (serializeOutputs) {
 			json.add("output", outputItems.get(0).toResultJson());
 		}
 
-		if (serializeInputs)
-		{
+		if (serializeInputs) {
 			json.add("baseinput", inputItems.get(0).toJson());
 			json.add("addedinput", inputItems.get(1).toJson());
 		}
 	}
 
 	@Override
-	public ItemStackJS parseResultItem(@Nullable Object o)
-	{
+	public ItemStackJS parseResultItem(@Nullable Object o) {
 		return ItemStackJS.of(o);
 	}
 }

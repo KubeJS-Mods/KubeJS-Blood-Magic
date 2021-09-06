@@ -5,11 +5,9 @@ import dev.latvian.kubejs.util.ListJS;
 /**
  * @author LatvianModder
  */
-public class AltarRecipeJS extends BMRecipeJS
-{
+public class AltarRecipeJS extends BMRecipeJS {
 	@Override
-	public void create(ListJS args)
-	{
+	public void create(ListJS args) {
 		outputItems.add(parseResultItem(args.get(0)));
 		inputItems.add(parseIngredientItem(args.get(1)));
 
@@ -19,51 +17,43 @@ public class AltarRecipeJS extends BMRecipeJS
 		json.addProperty("drainRate", 5);
 	}
 
-	public AltarRecipeJS upgradeLevel(int i)
-	{
+	public AltarRecipeJS upgradeLevel(int i) {
 		json.addProperty("upgradeLevel", i);
 		save();
 		return this;
 	}
 
-	public AltarRecipeJS altarSyphon(int i)
-	{
+	public AltarRecipeJS altarSyphon(int i) {
 		json.addProperty("altarSyphon", i);
 		save();
 		return this;
 	}
 
-	public AltarRecipeJS consumptionRate(int i)
-	{
+	public AltarRecipeJS consumptionRate(int i) {
 		json.addProperty("consumptionRate", i);
 		save();
 		return this;
 	}
 
-	public AltarRecipeJS drainRate(int i)
-	{
+	public AltarRecipeJS drainRate(int i) {
 		json.addProperty("drainRate", i);
 		save();
 		return this;
 	}
 
 	@Override
-	public void deserialize()
-	{
+	public void deserialize() {
 		outputItems.add(parseResultItem(json.get("output")));
 		inputItems.add(parseIngredientItem(json.get("input")));
 	}
 
 	@Override
-	public void serialize()
-	{
-		if (serializeOutputs)
-		{
+	public void serialize() {
+		if (serializeOutputs) {
 			json.add("output", outputItems.get(0).toResultJson());
 		}
 
-		if (serializeInputs)
-		{
+		if (serializeInputs) {
 			json.add("input", inputItems.get(0).toJson());
 		}
 	}

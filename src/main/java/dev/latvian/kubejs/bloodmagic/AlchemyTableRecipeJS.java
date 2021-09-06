@@ -7,11 +7,9 @@ import dev.latvian.kubejs.util.ListJS;
 /**
  * @author LatvianModder
  */
-public class AlchemyTableRecipeJS extends BMRecipeJS
-{
+public class AlchemyTableRecipeJS extends BMRecipeJS {
 	@Override
-	public void create(ListJS args)
-	{
+	public void create(ListJS args) {
 		outputItems.add(parseResultItem(args.get(0)));
 		inputItems.addAll(parseIngredientItemList(args.get(1)));
 
@@ -21,47 +19,39 @@ public class AlchemyTableRecipeJS extends BMRecipeJS
 	}
 
 	@Override
-	public void deserialize()
-	{
+	public void deserialize() {
 		outputItems.add(parseResultItem(json.get("output")));
 		inputItems.addAll(parseIngredientItemList(json.get("input")));
 	}
 
-	public AlchemyTableRecipeJS syphon(int i)
-	{
+	public AlchemyTableRecipeJS syphon(int i) {
 		json.addProperty("syphon", i);
 		save();
 		return this;
 	}
 
-	public AlchemyTableRecipeJS ticks(int i)
-	{
+	public AlchemyTableRecipeJS ticks(int i) {
 		json.addProperty("ticks", i);
 		save();
 		return this;
 	}
 
-	public AlchemyTableRecipeJS upgradeLevel(int i)
-	{
+	public AlchemyTableRecipeJS upgradeLevel(int i) {
 		json.addProperty("upgradeLevel", i);
 		save();
 		return this;
 	}
 
 	@Override
-	public void serialize()
-	{
-		if (serializeOutputs)
-		{
+	public void serialize() {
+		if (serializeOutputs) {
 			json.add("output", outputItems.get(0).toResultJson());
 		}
 
-		if (serializeInputs)
-		{
+		if (serializeInputs) {
 			JsonArray array = new JsonArray();
 
-			for (IngredientJS in : inputItems)
-			{
+			for (IngredientJS in : inputItems) {
 				array.add(in.toJson());
 			}
 
