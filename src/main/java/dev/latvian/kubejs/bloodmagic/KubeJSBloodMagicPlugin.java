@@ -1,7 +1,7 @@
 package dev.latvian.kubejs.bloodmagic;
 
-import dev.latvian.kubejs.KubeJSPlugin;
-import dev.latvian.kubejs.recipe.RegisterRecipeHandlersEvent;
+import dev.latvian.mods.kubejs.KubeJSPlugin;
+import dev.latvian.mods.kubejs.recipe.RegisterRecipeHandlersEvent;
 
 /**
  * @author LatvianModder

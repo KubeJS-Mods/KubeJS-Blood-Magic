@@ -1,1 +1,11 @@
-rootProject.name = 'KubeJS-Blood-Magic-1.16.5'
+pluginManagement {
+    repositories {
+        maven { url "https://maven.creeperhost.net/" }
+        maven { url "https://maven.architectury.dev/" }
+        maven { url "https://files.minecraftforge.net/maven/" }
+        gradlePluginPortal()
+    }
+}
+
+
+rootProject.name = 'KubeJS-Blood-Magic-1.18.2'

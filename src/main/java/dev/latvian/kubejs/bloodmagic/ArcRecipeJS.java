@@ -3,9 +3,9 @@ package dev.latvian.kubejs.bloodmagic;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import dev.latvian.kubejs.fluid.FluidStackJS;
-import dev.latvian.kubejs.item.ItemStackJS;
-import dev.latvian.kubejs.util.ListJS;
+import dev.latvian.mods.kubejs.fluid.FluidStackJS;
+import dev.latvian.mods.kubejs.item.ItemStackJS;
+import dev.latvian.mods.kubejs.util.ListJS;
 
 /**
  * @author LatvianModder
@@ -33,7 +33,7 @@ public class ArcRecipeJS extends BMRecipeJS {
 		if (json.has("addedoutput")) {
 			for (JsonElement e : json.get("addedoutput").getAsJsonArray()) {
 				JsonObject o = e.getAsJsonObject();
-				outputItems.add(parseResultItem(o.get("type")).chance(o.get("chance").getAsDouble()));
+				outputItems.add(parseResultItem(o.get("type")).withChance(o.get("chance").getAsDouble()));
 			}
 		}
 	}

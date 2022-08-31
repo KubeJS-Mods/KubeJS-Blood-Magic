@@ -5,7 +5,7 @@ license = "GNU LGPLv3"
 
 [[mods]]
 modId = "kubejs_blood_magic"
-version = "${file.jarVersion}"
+version = "${version}"
 displayName = "KubeJS Blood Magic"
 authors = "LatvianModder"
 description = '''

@@ -1,7 +1,8 @@
 package dev.latvian.kubejs.bloodmagic;
 
-import dev.latvian.kubejs.item.ItemStackJS;
-import dev.latvian.kubejs.util.ListJS;
+
+import dev.latvian.mods.kubejs.item.ItemStackJS;
+import dev.latvian.mods.kubejs.util.ListJS;
 
 import javax.annotation.Nullable;
 

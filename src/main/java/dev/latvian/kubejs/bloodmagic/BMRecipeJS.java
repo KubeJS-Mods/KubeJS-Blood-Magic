@@ -1,6 +1,7 @@
 package dev.latvian.kubejs.bloodmagic;
 
-import dev.latvian.kubejs.recipe.RecipeJS;
+
+import dev.latvian.mods.kubejs.recipe.RecipeJS;
 
 /**
  * @author LatvianModder
